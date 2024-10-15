@@ -9,10 +9,9 @@ const firebaseConfig = {
   projectId: "qr-generator-bedce",
   storageBucket: "qr-generator-bedce.appspot.com",
   messagingSenderId: "814647355585",
-  appId: "1:814647355585:web:e7803563fd2ad918c58c40",
-  measurementId: "G-5KE4YF9TXT",
+  appId: "1:814647355585:web:b8436a4290fc7c1ac58c40",
+  measurementId: "G-F7Y56VKW5P",
 };
-
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
