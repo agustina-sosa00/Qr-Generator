@@ -3,6 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+  background-color: #e4e3e3;
+}
 
 .bg {
   background: url("../src/assets/bg.png");

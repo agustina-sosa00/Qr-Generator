@@ -6,17 +6,26 @@ import "./index.css";
 
 export const App = () => {
   const [value, setValue] = useState("");
+
   const [openQR, setOpenQR] = useState(false);
 
   const handleGenerateQr = () => {
-    setOpenQR(true);
+    // Si ya está abierto, lo cerramos temporalmente para volver a abrirlo
+    if (openQR) {
+      setOpenQR(false);
+      setTimeout(() => {
+        setOpenQR(true);
+      }, 100); // Esperamos un breve tiempo para asegurarnos de que se desmonte
+    } else {
+      setOpenQR(true); // Si no está abierto, simplemente lo abrimos
+    }
   };
 
   return (
     <div className="w-full min-h-screen flex flex-col justify-start items-center p-10 gap-7 bg ">
       <div className="w-full lg:w-1/2 flex justify-center gap-3 lg:gap-7">
         <h1 className="text-xl lg:text-6xl font-title font-bold">
-          QR Generator{" "}
+          QR Generator
         </h1>
         <div className="relative h-full">
           <div className="absolute top-0 w-full h-1 bg-red-600 box "></div>
@@ -26,8 +35,8 @@ export const App = () => {
       <div className="w-full lg:w-1/2 flex justify-center items-center">
         <h2 className="text-sm lg:text-base text-center">
           Con esta herramienta, puedes generar un código QR para cualquier
-          enlace web, como tu{" "}
-          <span className="text-red-600 font-semibold">portfolio</span>.
+          enlace web, como tu
+          <span className="text-red-600 font-semibold ml-1">portfolio</span>.
           Simplemente ingresa la URL y obtén un código QR que permite a otros
           acceder fácilmente a tu contenido. ¡Es una forma rápida y práctica de
           compartir enlaces!
@@ -48,6 +57,7 @@ export const App = () => {
             Ingresa la URL
           </label>
         </div>
+
         <button
           onClick={handleGenerateQr}
           className="w-36 lg:w-48 h-10 lg:h-12 flex justify-center items-center bg-green-500 text-white rounded text-base lg:text-xl hover:bg-green-700 hover:scale-105 duration-500"
@@ -56,7 +66,7 @@ export const App = () => {
           <IoQrCode className="text-base lg:text-2xl text-white font-extrabold ml-2" />
         </button>
       </div>
-      {/* )} */}
+
       {openQR && <QrCode value={value} />}
     </div>
   );
