@@ -1,5 +1,6 @@
 # Qr-Generator
 Tecnologias utilizadas: React / JavaScript / CSS
+
 Librerias utilizadas: TailwindCSS / Qrcode.react / Sonner Alerts / 
 
 ### Instalacion del proyecto:
